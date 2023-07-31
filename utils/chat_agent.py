@@ -31,8 +31,8 @@ from langchain.utilities import SerpAPIWrapper
 langchain.llm_cache = InMemoryCache()
 
 
-news_api_key = os.environ["NEWS_API_KEY"]
-tmdb_bearer_token = os.environ["TMDB_API_KEY"]
+# news_api_key = os.environ["NEWS_API_KEY"]
+# tmdb_bearer_token = os.environ["TMDB_API_KEY"]
 
 
 @dataclass
@@ -89,15 +89,15 @@ class ChatAgent:
         # set up a Wikipedia docstore agent
         docstore_agent = self._get_docstore_agent()
 
-        giphy = GiphyAPIWrapper()
-        foursquare = FoursquareAPIWrapper()
+        # giphy = GiphyAPIWrapper()
+        # foursquare = FoursquareAPIWrapper()
 
         tool_names = [
             'serpapi',
             # 'wolfram-alpha',
             'llm-math',
             # 'open-meteo-api',
-            'news-api',
+            # 'news-api',
             # 'tmdb-api',
             'wikipedia'
         ]
@@ -107,9 +107,9 @@ class ChatAgent:
 
         tools = load_tools(
             tool_names,
-            llm=OpenAI(temperature=0, model_name="text-davinci-003"),
-            news_api_key=news_api_key,
-            tmdb_bearer_token=tmdb_bearer_token
+            llm=OpenAI(temperature=0, model_name="text-davinci-003") #,
+            # news_api_key=news_api_key,
+            # tmdb_bearer_token=tmdb_bearer_token
         )
 
         # Tweak some of the tool descriptions
@@ -125,22 +125,22 @@ class ChatAgent:
                 description="Useful for answering a wide range of factual, scientific, academic, political and historical questions.",
                 func=docstore_agent.run
             ),
-            Tool(
-                name="GiphySearch",
-                func=giphy.run,
-                return_direct=True,
-                description="useful for when you need to find a gif or picture, and for adding humor to your replies. Input should be a query, and output will be an html embed code which you MUST include in your Final Answer."
-            ),
-            Tool(
-                name="FoursquareSearch",
-                func=foursquare.run,
-                description="useful for when you need to find information about a store, park, or other venue. Input should be a query, and output will be JSON data which you should summarize and give back relevant information."
-            ),
-            Tool(
-                name="FoursquareNear",
-                func=foursquare.near,
-                description="useful for when you need to find information about a store, park, or other venue in a particular location. Input should be a pipe separated list of strings of length two, representing what you want to search for and where. For example, `coffee shops| \"chicago il\"` would be the input if you wanted to search for coffee shops in or near chicago, illinois and output will be JSON data which you should summarize and give back relevant information."
-            ),            
+            # Tool(
+            #     name="GiphySearch",
+            #     func=giphy.run,
+            #     return_direct=True,
+            #     description="useful for when you need to find a gif or picture, and for adding humor to your replies. Input should be a query, and output will be an html embed code which you MUST include in your Final Answer."
+            # ),
+            # Tool(
+            #     name="FoursquareSearch",
+            #     func=foursquare.run,
+            #     description="useful for when you need to find information about a store, park, or other venue. Input should be a query, and output will be JSON data which you should summarize and give back relevant information."
+            # ),
+            # Tool(
+            #     name="FoursquareNear",
+            #     func=foursquare.near,
+            #     description="useful for when you need to find information about a store, park, or other venue in a particular location. Input should be a pipe separated list of strings of length two, representing what you want to search for and where. For example, `coffee shops| \"chicago il\"` would be the input if you wanted to search for coffee shops in or near chicago, illinois and output will be JSON data which you should summarize and give back relevant information."
+            # ),            
             Tool(
                 name="Requests",
                 func=requests_tool,
