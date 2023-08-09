@@ -1,0 +1,18 @@
+2023-08-09 06:10:23 INFO  Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+2023-08-09 06:10:23 INFO  A cloud secure connect bundle was provided: ignoring all explicit contact points.
+2023-08-09 06:10:23 INFO  Operation directory: /workspace/jsb_iris/jsb/dsbulk-1.11.0/logs/COUNT_20230809-061023-198701
+2023-08-09 06:10:27 INFO  Operation COUNT_20230809-061023-198701 completed successfully in less than one second.
+2023-08-09 06:10:27 INFO  Records: total: 5, successful: 5, failed: 0
+2023-08-09 06:10:27 INFO  Memory usage: used: 187 MB, free: 818 MB, allocated: 1,006 MB, available: 3,490 MB, total gc count: 4, total gc time: 21 ms
+2023-08-09 06:10:27 INFO  Reads: total: 5, successful: 5, failed: 0, in-flight: 0
+2023-08-09 06:10:27 INFO  Throughput: 5 reads/second
+2023-08-09 06:10:27 INFO  Latencies: mean 74.82, 75p 73.40, 99p 90.70, 999p 90.70 milliseconds
+2023-08-09 06:10:29 INFO  Final stats:
+2023-08-09 06:10:29 INFO  Records: total: 5, successful: 5, failed: 0
+2023-08-09 06:10:29 INFO  Memory usage: used: 192 MB, free: 813 MB, allocated: 1,006 MB, available: 3,490 MB, total gc count: 4, total gc time: 21 ms
+2023-08-09 06:10:29 INFO  Reads: total: 5, successful: 5, failed: 0, in-flight: 0
+2023-08-09 06:10:29 INFO  Throughput: 2 reads/second
+2023-08-09 06:10:29 INFO  Latencies: mean 74.82, 75p 73.40, 99p 90.70, 999p 90.70 milliseconds
+2023-08-09 06:10:29 INFO  Checkpoints for the current operation were written to checkpoint.csv.
+2023-08-09 06:10:29 INFO  To resume the current operation, re-run it with the same settings, and add the following command line flag:
+2023-08-09 06:10:29 INFO  --dsbulk.log.checkpoint.file=/workspace/jsb_iris/jsb/dsbulk-1.11.0/logs/COUNT_20230809-061023-198701/checkpoint.csv
